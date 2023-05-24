@@ -7,7 +7,7 @@ name = "adcraft"
 version = "0.1.0"
 authors = [{name = "System1", email = "datascience@system1.com"}]
 description = "Gym environment simulating auctions."
-readme = "README.rst"
+readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
 keywords = ["auction", "gym", "gymnasium"]
