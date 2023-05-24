@@ -1,0 +1,40 @@
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
+
+[project]
+name = "adcraft"
+version = "0.1.0"
+authors = [{name = "System1", email = "datascience@system1.com"}]
+description = "Gym environment simulating auctions."
+readme = "README.rst"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+keywords = ["auction", "gym", "gymnasium"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "gymnasium",
+    "ipython",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "ray[rllib]",
+    "torch",
+]
+
+[project.urls]
+# Homepage = "https://www.system1.com/"
+# Documentation = "https://Mikata.github.io/adcraft/reference/index.html"
+Repository = "https://github.com/Mikata/adcraft"
+# Changelog = "https://github.com/Mikata/adcraft/releases"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "adcraft.rust"
