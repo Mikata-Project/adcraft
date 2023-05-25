@@ -1,0 +1,10 @@
+black
+flake8
+flake8-black
+flake8-builtins
+flake8-colors
+flake8-docstrings
+flake8-quotes
+pandas-vet
+tox
+

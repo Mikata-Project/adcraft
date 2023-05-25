@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.7', '3.11']
+        python-version: ['3.8', '3.10']
 
     steps:
     - name: Check out repository
@@ -35,7 +35,6 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -r requirements-test.txt
-        pip install tox
 
     - name: Set up Rust
       run: rustup show
@@ -51,5 +50,5 @@ jobs:
         maturin develop
 
     - name: Run tests
-      run: tox -e py
+      run: pytest -v --cov=adcraft --cov-config=.coveragerc --cov-report term-missing --cov-report html .
 
