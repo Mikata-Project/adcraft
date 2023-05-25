@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "adcraft"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{name = "System1", email = "datascience@system1.com"}]
 description = "Gym environment simulating auctions."
 readme = "README.md"
