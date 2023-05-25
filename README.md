@@ -48,33 +48,17 @@ eval_dict
 ```
 
 
-## Tests
-
-Lint code with
-
-::
-
-    $ make lint
-
-
-Run tests with
-
-::
-
-    $ make test
-
-
 ## Install
 
-Install without running linter and unit tests:
+NOTE: To install you need to have Rust installed. Instructions are here: https://www.rust-lang.org/tools/install
 
-::
+Easiest method is to `pip install git+https://github.com/Mikata-Project/adcraft.git`
 
-    $ make install
+Alternate method is to clone repo and `make install`.
 
 
-Run linter and unit tests:
+## Tests
 
-::
+Lint code with: `make lint`
 
-    $ make
+Run tests with: `make test`
