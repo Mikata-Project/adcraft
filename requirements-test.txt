@@ -1,6 +1,9 @@
-black
-flake8
+matplotlib
+maturin
 mypy
 pytest
-ray[rllib]
-matplotlib
+pytest-cov
+pytest-mock
+pytest-pep8
+ray[rllib]==2.3.0
+

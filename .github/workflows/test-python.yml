@@ -1,0 +1,54 @@
+name: Test Python
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.10']
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+        cache-dependency-path: 'requirements-test.txt'
+
+    - name: Create virtual environment
+      run: |
+        python -m venv .venv
+        echo "$GITHUB_WORKSPACE/.venv/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements-test.txt
+
+    - name: Set up Rust
+      run: rustup show
+
+    - name: Cache Rust
+      uses: Swatinem/rust-cache@v2
+
+    - name: Install adcraft
+      env:
+        RUSTFLAGS: -C debuginfo=0  # Do not produce debug symbols to keep memory usage down
+      run: |
+        source activate
+        maturin develop
+
+    - name: Run tests
+      run: pytest -v --cov=adcraft --cov-config=.coveragerc --cov-report term-missing --cov-report html .
+
