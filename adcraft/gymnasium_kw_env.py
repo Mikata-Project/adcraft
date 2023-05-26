@@ -152,12 +152,10 @@ class BiddingSimulation(gym.Env):
                 )
                 keyword.buyside_ctr *= 1 + ctr_coeff
                 keyword.buyside_ctr = probify(keyword.buyside_ctr)
-                params[3] *= 1 + ctr_coeff
+                params[3] = keyword.buyside_ctr
                 keyword.sellside_paid_ctr *= 1 + cvr_coeff
                 keyword.sellside_paid_ctr = probify(keyword.sellside_paid_ctr)
-                params[4] *= probify(1 + cvr_coeff)
-                params[3] = probify(params[3])
-                params[4] = probify(params[4])
+                params[4] = keyword.sellside_paid_ctr
 
     def step(self, action: Act) -> Tuple[Obs, float, bool, bool, dict]:
         """Run one timestep of the environment's dynamics using the agent actions.
