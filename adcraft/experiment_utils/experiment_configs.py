@@ -1,16 +1,15 @@
 import os
 from pathlib import Path
 import adcraft.gymnasium_kw_env as kw_sim
-from adcraft.experiment_utils.experiment_quantiles import (
-    make_experiment_quantiles,load_experiment_quantiles)
+from adcraft.experiment_utils.experiment_quantiles import (make_experiment_quantiles, load_experiment_quantiles)
 
 
 ### Here we set the experiment mode   
-experiment_mode="dense_env_config"
+experiment_mode = "dense_env_config"
 
 
-NUM_KEYWORDS=100
-MAX_DAYS=60
+NUM_KEYWORDS = 100
+MAX_DAYS = 60
 
 
 dense_env_config = dict(
@@ -21,10 +20,10 @@ dense_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=None
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = None
 )
 
 semi_dense_env_config = dict(
@@ -35,10 +34,10 @@ semi_dense_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=None
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = None
 )
 
 sparse_env_config = dict(
@@ -49,10 +48,10 @@ sparse_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=None
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = None
 )
 
 very_sparse_env_config = dict(
@@ -63,10 +62,10 @@ very_sparse_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=None
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = None
 )
 
 
@@ -78,10 +77,10 @@ non_stationary_dense_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=[True] * NUM_KEYWORDS
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = [True] * NUM_KEYWORDS
 )
 
 non_stationary_sparse_env_config = dict(
@@ -92,8 +91,8 @@ non_stationary_sparse_env_config = dict(
         "make_quant_func": make_experiment_quantiles,
         "load_quant_func": load_experiment_quantiles
         },
-    num_keywords=NUM_KEYWORDS,
-    max_days=MAX_DAYS,
-    updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-    updater_mask=[True] * NUM_KEYWORDS
+    num_keywords = NUM_KEYWORDS,
+    max_days = MAX_DAYS,
+    updater_params = [["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
+    updater_mask = [True] * NUM_KEYWORDS
 )
