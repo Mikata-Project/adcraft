@@ -32,11 +32,10 @@ from auction_gym.wrappers.flat_array import FlatArrayWrapper
 import adcraft.baselines.interpolated_expectations as ie
 import adcraft.gymnasium_kw_env as kw_sim
 from adcraft.experiment_utils.experiment_quantiles import (
-            make_experiment_quantiles, load_experiment_quantiles
-            )
+    make_experiment_quantiles, load_experiment_quantiles)
+    
 from adcraft.experiment_utils.experiment_metrics import (
-            get_implicit_kw_bid_cpc_impressions, get_max_expected_bid_profits, compute_AKNCP, compute_NCP
-            )
+    get_implicit_kw_bid_cpc_impressions,get_max_expected_bid_profits,compute_AKNCP,compute_NCP)
 
 from experiment_configs import (dense_env_config, semi_dense_env_config, very_sparse_env_config, 
 sparse_env_config, non_stationary_sparse_env_config,non_stationary_dense_env_config,prod_training_env_config)
@@ -53,18 +52,18 @@ MAX_DAYS = MAX_DAYS
 experiment_type = experiment_mode
 
 
-if experiment_type == 'semi_dense':
+if experiment_type == "semi_dense":
     env_config = semi_dense_env_config
-elif experiment_type == 'sparse':
+elif experiment_type == "sparse":
     env_config = sparse_env_config
-elif experiment_type == 'very_sparse':
+elif experiment_type == "very_sparse":
     env_config = very_sparse_env_config
-elif experiment_type == 'non_stationary_dense':
+elif experiment_type == "non_stationary_dense":
     env_config = non_stationary_dense_env_config
-elif experiment_type == 'non_stationary_sparse':
+elif experiment_type == "non_stationary_sparse":
     env_config = non_stationary_sparse_env_config
 else: 
-    env_config = prod_training_env_config
+    env_config = dense_env_config
 
 
 

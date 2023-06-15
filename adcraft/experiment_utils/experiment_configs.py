@@ -2,15 +2,15 @@ import os
 from pathlib import Path
 import adcraft.gymnasium_kw_env as kw_sim
 from adcraft.experiment_utils.experiment_quantiles import (
-    make_experiment_quantiles, load_experiment_quantiles)
+    make_experiment_quantiles,load_experiment_quantiles)
 
 
 ### Here we set the experiment mode   
-experiment_mode = 'production_training'
+experiment_mode="dense_env_config"
 
 
-NUM_KEYWORDS = 100
-MAX_DAYS = 60
+NUM_KEYWORDS=100
+MAX_DAYS=60
 
 
 dense_env_config = dict(
