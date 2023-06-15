@@ -15,7 +15,7 @@ import torch
 from ray.rllib.models.preprocessors import get_preprocessor 
 from ray.rllib.algorithms.ppo import PPO, PPOConfig
 from ray.rllib.algorithms.a2c import A2C, A2CConfig
-from ray.rllib.algorithms.td3 import TD3Config
+from ray.rllib.algorithms.td3 import TD3, TD3Config
 
 
 from pathlib import Path
