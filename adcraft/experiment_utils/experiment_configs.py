@@ -25,7 +25,7 @@ dense_env_config = dict(
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
         updater_mask=None
-        )
+)
 
 semi_dense_env_config = dict(
     keyword_config={
@@ -38,8 +38,8 @@ semi_dense_env_config = dict(
         num_keywords=NUM_KEYWORDS,
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-        updater_mask=None #[True]*NUM_KEYWORDS
-        )
+        updater_mask=None
+)
 
 sparse_env_config = dict(
     keyword_config={
@@ -52,8 +52,8 @@ sparse_env_config = dict(
         num_keywords=NUM_KEYWORDS,
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-        updater_mask=None #[True]*NUM_KEYWORDS
-        )
+        updater_mask=None
+)
 
 very_sparse_env_config = dict(
     keyword_config={
@@ -66,8 +66,8 @@ very_sparse_env_config = dict(
         num_keywords=NUM_KEYWORDS,
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-        updater_mask=None #[True]*NUM_KEYWORDS
-        )
+        updater_mask=None
+)
 
 
 non_stationary_dense_env_config = dict(
@@ -82,7 +82,7 @@ non_stationary_dense_env_config = dict(
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
         updater_mask=[True]*NUM_KEYWORDS
-        )
+)
 
 non_stationary_sparse_env_config = dict(
     keyword_config={
@@ -95,5 +95,5 @@ non_stationary_sparse_env_config = dict(
         num_keywords=NUM_KEYWORDS,
         max_days=MAX_DAYS,
         updater_params=[["vol", 0.03], ["ctr", 0.03], ["cvr", 0.03]],
-        updater_mask=[True]*NUM_KEYWORDS
-        )
+        updater_mask=[True] * NUM_KEYWORDS
+)
