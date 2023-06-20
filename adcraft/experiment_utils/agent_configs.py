@@ -1,12 +1,6 @@
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-from ray.rllib.algorithms.mbmpo.model_ensemble import DynamicsEnsembleCustomModel
 
-import os
-import numpy as np
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import matplotlib.patches
 from IPython import display
 import torch
 from ray.rllib.models.preprocessors import get_preprocessor 
