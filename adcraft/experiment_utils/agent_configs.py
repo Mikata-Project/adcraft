@@ -2,10 +2,7 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 from ray.rllib.algorithms.mbmpo.model_ensemble import DynamicsEnsembleCustomModel
 
-from ray.tune.registry import register_env
 import os
-from auction_gym.wrappers.flat_array import FlatArrayWrapper
-
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -16,8 +13,6 @@ from ray.rllib.models.preprocessors import get_preprocessor
 from ray.rllib.algorithms.ppo import PPO, PPOConfig
 from ray.rllib.algorithms.a2c import A2C, A2CConfig
 from ray.rllib.algorithms.td3 import TD3, TD3Config
-
-
 from pathlib import Path
 
 
@@ -58,11 +53,6 @@ elif experiment_type == "non_stationary_sparse":
 else: 
     env_config = dense_env_config
 
-
-
-import pandas as pd
-
-import json
 
 from ray.rllib.models import ModelCatalog
 from ray.rllib.models.torch.torch_modelv2 import TorchModelV2
