@@ -1,4 +1,7 @@
 import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+
 import torch
 from ray.rllib.algorithms.ppo import PPO, PPOConfig
 from ray.rllib.algorithms.a2c import A2C, A2CConfig
@@ -23,7 +26,6 @@ from adcraft.experiment_utils.experiment_configs import NUM_KEYWORDS
 from adcraft.experiment_utils.experiment_configs import MAX_DAYS
 from adcraft.experiment_utils.experiment_configs import experiment_mode
 
-warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 NUM_KEYWORDS = NUM_KEYWORDS
