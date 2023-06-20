@@ -1,9 +1,5 @@
 import warnings
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-
-from IPython import display
 import torch
-from ray.rllib.models.preprocessors import get_preprocessor 
 from ray.rllib.algorithms.ppo import PPO, PPOConfig
 from ray.rllib.algorithms.a2c import A2C, A2CConfig
 from ray.rllib.algorithms.td3 import TD3, TD3Config
@@ -26,6 +22,8 @@ from adcraft.experiment_utils.experiment_configs import (dense_env_config, semi_
 from adcraft.experiment_utils.experiment_configs import NUM_KEYWORDS
 from adcraft.experiment_utils.experiment_configs import MAX_DAYS
 from adcraft.experiment_utils.experiment_configs import experiment_mode
+
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 
 NUM_KEYWORDS = NUM_KEYWORDS
