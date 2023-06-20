@@ -18,7 +18,32 @@ AdCraft is a Python-based framework designed as a customizable benchmark for eva
 - Package of Gymnasium environments for different auction scenarios
 
 
-## Example usage with RLlib on GPU
+## Installation
+
+NOTE: To install you need to have Rust installed. Instructions are here: https://www.rust-lang.org/tools/install
+
+Easiest method is to `pip install git+https://github.com/Mikata-Project/adcraft.git`
+
+Alternate method is to clone repo and `make install`.
+
+
+## Usage
+
+
+After installing the required dependencies, you can begin exploring AdCraft by running the provided Jupyter notebooks. To run these notebooks, ensure that Jupyter Notebook and the AdCraft package are installed. By following these steps, you can efficiently utilize AdCraft's tools within the Jupyter Notebook environment.
+
+### Install Jupyter notebook 
+
+`pip install notebook`
+
+### Running the RL agent training notebook
+
+Then, we can run the RL agent traing notebook by navigating to the notebook directory and launching a notebook.
+
+`cd adcraft/RL`
+`jupyter train_agent.ipynb`
+
+### Example usage with RLlib on GPU
 
 [//]: # "TODO: Provide more examples on how to use without Ray."
 
@@ -54,14 +79,6 @@ eval_dict = ppo.evaluate()
 eval_dict
 ```
 
-
-## Installation
-
-NOTE: To install you need to have Rust installed. Instructions are here: https://www.rust-lang.org/tools/install
-
-Easiest method is to `pip install git+https://github.com/Mikata-Project/adcraft.git`
-
-Alternate method is to clone repo and `make install`.
 
 
 ## Tests
