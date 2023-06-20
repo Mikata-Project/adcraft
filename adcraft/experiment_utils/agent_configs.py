@@ -21,7 +21,7 @@ from ray.rllib.algorithms.td3 import TD3, TD3Config
 from pathlib import Path
 
 
-from adcraft.experiment_utils import experiment_configs.py
+from adcraft.experiment_utils import experiment_configs
 import adcraft.gymnasium_kw_env as kw_sim
 from adcraft.experiment_utils.experiment_quantiles import (
     make_experiment_quantiles, load_experiment_quantiles)
