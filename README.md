@@ -41,6 +41,7 @@ After installing the required dependencies, you can begin exploring AdCraft by r
 Then, we can run the RL agent traing notebook by navigating to the notebook directory and launching a notebook.
 
 `cd adcraft/RL`
+
 `jupyter train_agent.ipynb`
 
 ### Example usage with RLlib on GPU
