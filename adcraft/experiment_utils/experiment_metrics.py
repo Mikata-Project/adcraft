@@ -13,9 +13,7 @@ def get_explicit_kw_bid_cpc_impressions(
     """Compute the auction win rate and approximate cost for each bid in bid array."""
     impression_rate = np.array([explicit_keyword.impression_rate(b) for b in bid_array])
     N = len(bid_array)
-    cost = np.reshape(np.tile(np.reshape(bid_array, (1, -1)), (1, n_samples)), (-1,))
-    explicit_keyword.cost_per_buyside_click(cost)
-    med_cost_per_bid = np.median(np.reshape(cost, (n_samples, N)), axis=0)
+    med_cost_per_bid = np.array([np.median(explicit_keyword.cost_per_buyside_click(bid, n_samples)) for bid in bid_array])
     return impression_rate, med_cost_per_bid
 
 
@@ -59,7 +57,7 @@ def get_max_expected_bid_profits(
     )
     return (
         max([0.0, expected_profits.max()]),
-        np.sum(expected_profits > 0) / len(expected_cpc_per_bid),
+        np.sum(expected_profits > 0) / len(expected_cpc_per_bid), np.argmax(expected_profits)
     )
 
 
@@ -70,10 +68,16 @@ def compute_AKNCP(kw_profits: np.array, ideal_profits: np.array) -> float:
     kw_params: ((vol_mean, vol_std), 50%_impression_bid, 50%_impression_slope, bctr, sctr, mean_revenue, std_revenue)
     expected_profits = vol_mean * impression_rate * bctr * (sctr * mean_revenue - costs).
     """
-    ideal_profits_edit = np.maximum(ideal_profits, 0.001)
-    return np.median(kw_profits.mean(axis=0) / ideal_profits_edit.mean(axis=0))
+    denominator = ideal_profits.copy()
+    denominator[denominator <= 0] = 1.0
+    denominator = denominator.mean(axis=0)
+    # if ideal_profits is same as keyword_profits, then that should be 1.
+    return np.median(kw_profits.mean(axis=0) / denominator)
 
 
 def compute_NCP(kw_profits: np.array, ideal_profits: np.array) -> float:
     """Return the ratio of actual profit to ideal profits."""
-    return kw_profits.sum() / ideal_profits.sum()
+    denominator = ideal_profits.sum()
+    if denominator <= 0.0:
+        denominator = 1.0
+    return kw_profits.sum() / denominator
