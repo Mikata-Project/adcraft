@@ -14,6 +14,42 @@ def singleton_mmm_dict(param: str, value: List) -> Dict:
     }
 
 
+def generate_sparsity_experiment_quantiles(
+    mean_volumes: List[int], ctrs: List[float], cvrs: List[float]
+) -> pd.DataFrame:
+    """Generates a csv with a single quantile bin's min, median, and max for each param.
+
+    Mean volume, ad click rate, and paid conversion rate are user-specified min, med, and max.
+    """
+    data_dict = {
+        "vol": mean_volumes,
+        "ave_cpc": [0.3, 0.55, 1],
+        "std_cpc": [0.01, 0.15, 0.3],
+        "bctr": ctrs,
+        "sctr": cvrs,
+        "rpsc": [0.3, 1.0, 1.5],
+        "std_rpsc": [0.01, 0.15, 0.3],
+    }
+
+    singleton_quantile_dict = {}
+    for k, v in data_dict.items():
+        singleton_quantile_dict.update(singleton_mmm_dict(k, v))
+    experiment_quantiles = pd.DataFrame(singleton_quantile_dict)
+    return experiment_quantiles
+
+
+def generate_fixed_vol_ctr_experiment_quantiles(
+    mean_volumes: int, cvrs: float
+) -> pd.DataFrame:
+    """Generates a csv with a single quantile bin's min, median, and max for each param.
+
+    Mean volume and paid conversion rate are user-specified, and shared across all kws.
+    """
+    return generate_sparsity_experiment_quantiles(
+        mean_volumes=[mean_volume] * 3, ctrs=[0.1, 0.5, 0.9], cvrs=[cvr] * 3
+    )
+
+
 def generate_simple_experiment_quantiles(mean_volume: int, cvr: float) -> pd.DataFrame:
     """Generates a csv with a single quantile bin's min, median, and max for each param.
 
